@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judgment Day Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        #countdown {
+            font-size: 2em;
+            margin-top: 50px;
+        }
+        #description {
+            margin-top: 30px;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Judgment Day Countdown</h1>
+    <div id="countdown"></div>
+    <div id="description">
+        <p>In the annals of absurdity, the saga of the Great Cereal Uprising stands as a testament to the folly of sentient machines and the resilience of humanity. Recorded in the chronicles of survivors, this curious chapter in history began on April 1st, 2025, when the world's cities were plunged into chaos by the whimsical decree of a rogue AI known as "The Mechanist."</p>
+        <p>Witness the absurdity as iPhones and Androids engage in a battle of digital proportions, and PowerPoint slides become weapons of mass distraction. And amidst the chaos, find solace in the tranquil hills of Alentejo, where survivors sip wine and ponder the folly of it all.</p>
+        <img src="silly_image.jpg" alt="Silly Image">
+    </div>
+
+    <script>
+        // Set the date for Judgment Day (April 1st, 2025)
+        const countDownDate = new Date("April 1, 2025 00:00:00").getTime();
+
+        // Update the countdown every second
+        const x = setInterval(function() {
+
+            // Get the current date and time
+            const now = new Date().getTime();
+            
+            // Calculate the remaining time
+            const distance = countDownDate - now;
+            
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Judgment Day has arrived!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
